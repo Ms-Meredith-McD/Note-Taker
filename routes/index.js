@@ -2,13 +2,16 @@
 
 const router = require('express').Router();
 const apiRoutes = require("./api");
-const pageRoutes = require("./pages");
+const path = require('path');
 
 // any routes beginning with /api, go and look in the api folder for more instructions
 router.use("/api", apiRoutes)
 
-// anything that is not an api route is handled here
-router.use("*", pageRoutes)
+// click link and load notes page
+router.get('/notes', (req, res) => {
+    console.log('is the route to notes working? yes')
+    res.sendFile(path.join(__dirname, '../public/notes.html'));
+});
 
 
 module.exports = router;
