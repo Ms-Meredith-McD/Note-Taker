@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const injectData = require("../../middleware/injectData")
+router.use('/notes', require("./notes.js"))
 
 
 
