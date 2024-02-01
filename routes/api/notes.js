@@ -29,9 +29,14 @@ router.post('/', (req, res) => {
 // bonus -- delete note
 router.delete('/:id', (req, res) => {
     const dbFilePath = path.join(__dirname, '../../db/db.json');
+    console.log(dbFilePath)
     const savedNotes = JSON.parse(fs.readFileSync(dbFilePath, 'utf8'));
+    console.log(savedNotes)
     const updatedNotes = savedNotes.filter((note) => note.id !== req.params.id);
-    fs.writeFileSync.apply(dbFilePath, JSON.stringify(updatedNotes, null, 4), 'utf8');
+    console.log(updatedNotes)
+    fs.writeFile(dbFilePath, JSON.stringify(updatedNotes), (err) => {
+        console.log(err)
+    });
     res.json(updatedNotes);
 });
 
