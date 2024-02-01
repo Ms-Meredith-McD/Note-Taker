@@ -9,9 +9,12 @@ router.use("/api", apiRoutes)
 
 // click link and load notes page
 router.get('/notes', (req, res) => {
-    console.log('is the route to notes working? yes')
+    // console.log('is the route to notes working? yes')
     res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
-
+// any other link will go back to the index page
+router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 module.exports = router;
