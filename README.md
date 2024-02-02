@@ -9,12 +9,13 @@ Allow a small business owner to write and save notes in order to organize though
 The following tasks can now be completed that allow the business owner to use succesfully use this application:
 1. Enter new notes in the right column
 2. Clear the note taking section by clicking the plus sign to start a new note
-2. Save notes by clicking save
+2. Save notes by clicking the save icon 
 3. See all saved notes in the left column
-4. Edit and delete notes
+4. Click a saved note and see the full note on the right
+4. Delete notes by clicking the trash can
 
-
-## Installation
+## Link
+https://meredith-note-taker-9ca42dd590d8.herokuapp.com/
 
 
 ## Screenshot
