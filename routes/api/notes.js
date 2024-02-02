@@ -2,24 +2,32 @@ const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
-let savedNotes;
+let savedNotes = [];
 
+
+async function getNotes(){
+    const data = await fs.promises.readFile(path.join(__dirname, '../../db/db.json'), 'utf8')
+    return JSON.parse(data)
+}
 
 // get all the notes
-router.get('/', (req, res) => {
-    fs.readFile(path.join(__dirname, '../../db/db.json'), 'utf8', function (err, data) {
-        savedNotes = JSON.parse(data)
-    res.json(savedNotes);
-    })
+router.get('/', async (req, res) => {
+    const notes = await getNotes()
+    // fs.readFile(path.join(__dirname, '../../db/db.json'), 'utf8', function (err, data) {
+    //     savedNotes = JSON.parse(data)
+    res.json(notes);
 })
 
 //new note saves and appears in the left hand column
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    const notes = await getNotes()
     req.body.id = uuidv4()
-    savedNotes.push(req.body) 
-    fs.writeFile(path.join(__dirname, '../../db/db.json'), JSON.stringify(savedNotes) , function (err, data) {
-        res.json(savedNotes);
-})
+    notes.push(req.body) 
+    fs.writeFile(path.join(__dirname, '../../db/db.json'), JSON.stringify(notes) , function (err, data) {
+        if( err ) console.log(err)
+        res.json(notes);
+        
+    })
 })
 
 // bonus -- delete note
