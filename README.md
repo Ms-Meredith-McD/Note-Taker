@@ -14,9 +14,12 @@ The following tasks can now be completed that allow the business owner to use su
 4. Click a saved note and see the full note on the right
 4. Delete notes by clicking the trash can
 
+## Screenshot
+![Main Note Taker Page](./image/Note-Taker1.png)
+![Example of Notes Page](./image/Note-Taker2.png)
+
 ## Link
 https://meredith-note-taker-9ca42dd590d8.herokuapp.com/
 
 
-## Screenshot
 
